@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luisa & Sebi — Wedding 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ivory:       #FAF8F5;
+      --ivory-dark:  #F0EBE3;
+      --blush:       #E8B4B8;
+      --blush-deep:  #C48B8F;
+      --blush-light: #F5D9DB;
+      --text:        #4A3728;
+      --text-light:  #7A5C50;
+      --gold:        #C9A96E;
+      --sky:         #D6EAF2;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--ivory);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ──────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      background: linear-gradient(180deg,
+        #A8CEDF 0%, #B8D9EC 15%, #C9E4F0 30%,
+        #DDF0F8 50%, #EEF7FB 68%, var(--ivory) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .cloud {
+      position: absolute;
+      background: #fff;
+      border-radius: 50px;
+      will-change: transform;
+    }
+    .cloud::before, .cloud::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+    }
+    .cloud-1 { width: 160px; height: 50px; top: 18%; left: 6%;  opacity: 0.82; }
+    .cloud-1::before { width: 80px;  height: 80px;  top: -40px; left: 20px; }
+    .cloud-1::after  { width: 60px;  height: 60px;  top: -32px; left: 72px; }
+    .cloud-2 { width: 110px; height: 36px; top: 31%; right: 10%; opacity: 0.65; }
+    .cloud-2::before { width: 56px;  height: 56px;  top: -30px; left: 12px; }
+    .cloud-2::after  { width: 44px;  height: 44px;  top: -24px; left: 50px; }
+    .cloud-3 { width: 200px; height: 60px; top: 11%; left: 38%; opacity: 0.55; }
+    .cloud-3::before { width: 100px; height: 100px; top: -52px; left: 28px; }
+    .cloud-3::after  { width: 80px;  height: 80px;  top: -42px; left: 92px; }
+    .cloud-4 { width: 130px; height: 42px; top: 44%; left: 22%; opacity: 0.60; }
+    .cloud-4::before { width: 65px;  height: 65px;  top: -36px; left: 16px; }
+    .cloud-4::after  { width: 50px;  height: 50px;  top: -28px; left: 60px; }
+
+    .plane-wrapper {
+      position: absolute;
+      top: 24%; left: -220px;
+      animation: heroFly 16s ease-in-out infinite;
+      z-index: 5;
+    }
+    .plane-trail {
+      position: absolute;
+      top: 50%; right: 100%;
+      transform: translateY(-50%);
+      width: 200px; height: 3px;
+      background: linear-gradient(to left, rgba(255,255,255,0.9), transparent);
+      border-radius: 2px;
+    }
+    .plane-trail::before {
+      content: '';
+      position: absolute;
+      top: -3px; left: 0; right: 0; height: 9px;
+      background: linear-gradient(to left, rgba(255,255,255,0.35), transparent);
+      border-radius: 4px;
+    }
+    @keyframes heroFly {
+      0%   { left: -220px; top: 30%; }
+      40%  { top: 20%; }
+      70%  { top: 25%; }
+      100% { left: 110%; top: 27%; }
+    }
+
+    .hero-content {
+      position: relative; z-index: 10;
+      text-align: center; padding: 0 20px;
+    }
+    .hero-sub {
+      font-size: 0.72rem; letter-spacing: 0.38em;
+      text-transform: uppercase; color: var(--text-light);
+      margin-bottom: 18px; opacity: 0;
+      animation: fadeUp 1s ease forwards 0.4s;
+    }
+    .hero-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 11vw, 8rem);
+      font-weight: 300; line-height: 1;
+      color: var(--text); letter-spacing: 0.02em;
+      opacity: 0; animation: fadeUp 1s ease forwards 0.7s;
+    }
+    .hero-names .amp {
+      display: inline-block; color: var(--blush-deep);
+      font-style: italic; font-size: 0.85em;
+      margin: 0 0.15em; transform: rotate(-3deg);
+    }
+    .hero-divider {
+      width: 60px; height: 1px; background: var(--blush-deep);
+      margin: 24px auto; opacity: 0;
+      animation: fadeUp 1s ease forwards 1s;
+    }
+    .hero-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      font-style: italic; font-weight: 400;
+      color: var(--text-light); margin-bottom: 8px;
+      opacity: 0; animation: fadeUp 1s ease forwards 1.1s;
+    }
+    .hero-location {
+      font-size: 0.7rem; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--text-light);
+      opacity: 0; animation: fadeUp 1s ease forwards 1.3s;
+    }
+    .hero-scroll {
+      position: absolute; bottom: 36px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column;
+      align-items: center; gap: 8px;
+      opacity: 0; animation: fadeUp 1s ease forwards 2s;
+    }
+    .hero-scroll span {
+      font-size: 0.6rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--text-light);
+    }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--blush-deep), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(24px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ── INTRO ─────────────────────────────────────────── */
+    .intro-section {
+      padding: 90px 20px; max-width: 680px;
+      margin: 0 auto; text-align: center;
+    }
+    .section-label {
+      font-size: 0.65rem; letter-spacing: 0.4em;
+      text-transform: uppercase; color: var(--blush-deep);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300; color: var(--text); margin-bottom: 16px;
+    }
+    .section-divider {
+      width: 48px; height: 1px;
+      background: var(--blush); margin: 0 auto 48px;
+    }
+    .intro-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      font-style: italic; font-weight: 300;
+      line-height: 1.9; color: var(--text-light);
+    }
+
+    /* ── SCHEDULE — STICKY + SINUSOIDAL PLANE ─────────── */
+    .schedule-section {
+      position: relative;
+      background: var(--ivory-dark);
+    }
+    .schedule-sticky {
+      position: sticky; top: 0;
+      height: 100vh; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .sch-heading {
+      padding: 36px 20px 16px;
+      text-align: center; flex-shrink: 0;
+    }
+    .sch-heading .section-divider { margin-bottom: 0; }
+
+    .flight-track {
+      flex: 1; position: relative; overflow: hidden;
+    }
+
+    /* SVG overlay: planned route + flown trail */
+    .track-svg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      overflow: visible; pointer-events: none;
+    }
+
+    /* Centre reference line (very faint) */
+    .center-line {
+      position: absolute;
+      left: 50%; top: 0; bottom: 0;
+      width: 1px;
+      transform: translateX(-50%);
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(232,180,184,0.18) 0px, rgba(232,180,184,0.18) 6px,
+        transparent 6px, transparent 14px
+      );
+      pointer-events: none;
+    }
+
+    /* Plane — positioned & rotated by JS */
+    .track-plane {
+      position: absolute; z-index: 10;
+      pointer-events: none;
+      will-change: transform, left, top;
+    }
+    .track-plane-glow {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90px; height: 90px;
+      background: radial-gradient(circle, rgba(232,180,184,0.5) 0%, transparent 68%);
+      border-radius: 50%;
+      animation: glowPulse 2.4s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+      0%,100% { opacity:0.7; transform:translate(-50%,-50%) scale(1);    }
+      50%      { opacity:1;   transform:translate(-50%,-50%) scale(1.32); }
+    }
+
+    /* ── TRACK ITEMS (centred layout) ───────────────────── */
+    .track-item {
+      position: absolute; left: 0; right: 0;
+      transform: translateY(-50%); z-index: 5;
+    }
+
+    /* Dot always at centre */
+    .item-dot {
+      position: absolute; left: 50%; top: 0;
+      transform: translate(-50%, -50%);
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--blush-light); border: 2px solid var(--blush);
+      z-index: 6;
+      transition: background 0.4s, width 0.4s, height 0.4s, box-shadow 0.4s;
+    }
+    .track-item.active .item-dot {
+      background: var(--blush-deep); width: 15px; height: 15px;
+      box-shadow: 0 0 0 6px rgba(196,139,143,0.18);
+    }
+
+    /* Connector: short horizontal line from dot to content */
+    .item-connector {
+      position: absolute; top: 0; height: 1px;
+      background: var(--blush); transform: translateY(-50%);
+      width: 0; z-index: 3;
+      transition: width 0.4s ease 0.15s;
+    }
+    .track-item[data-side="left"]  .item-connector { right: calc(50% + 7px); }
+    .track-item[data-side="right"] .item-connector { left:  calc(50% + 7px); }
+    .track-item.active .item-connector { width: 24px; }
+
+    /* Content box */
+    .item-content {
+      position: absolute; top: 0;
+      max-width: min(210px, calc(50% - 44px));
+      opacity: 0;
+      transition: opacity 0.5s ease 0.25s, transform 0.5s ease 0.25s;
+      /* Opaque background so the sine path never bleeds through the text */
+      background: var(--ivory-dark);
+      padding: 5px 8px;
+      border-radius: 4px;
+    }
+    /* Left items: content on the LEFT side of the centre */
+    .track-item[data-side="left"] .item-content {
+      right: calc(50% + 34px);
+      text-align: right;
+      transform: translateY(-50%) translateX(12px);
+    }
+    .track-item[data-side="left"].active .item-content {
+      opacity: 1; transform: translateY(-50%) translateX(0);
+    }
+    /* Right items: content on the RIGHT side of the centre */
+    .track-item[data-side="right"] .item-content {
+      left: calc(50% + 34px);
+      text-align: left;
+      transform: translateY(-50%) translateX(-12px);
+    }
+    .track-item[data-side="right"].active .item-content {
+      opacity: 1; transform: translateY(-50%) translateX(0);
+    }
+
+    .item-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 300; color: var(--blush-deep); line-height: 1;
+    }
+    .item-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.82rem, 2vw, 1rem);
+      font-weight: 600; color: var(--text); margin-top: 5px;
+    }
+    .item-desc {
+      font-size: 0.65rem; font-weight: 300;
+      letter-spacing: 0.04em; color: var(--text-light);
+      margin-top: 3px; line-height: 1.55;
+    }
+
+    @media (max-width: 500px) { .item-desc { display: none; } }
+
+    /* ── DETAILS STRIP ─────────────────────────────────── */
+    .details-strip {
+      background: linear-gradient(135deg, #E8B4B8 0%, #F5D9DB 50%, #E8B4B8 100%);
+      padding: 70px 20px;
+    }
+    .details-grid {
+      max-width: 860px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px; text-align: center;
+    }
+    .detail-card-icon { width: 44px; height: 44px; margin: 0 auto 16px; }
+    .detail-card-label {
+      font-size: 0.6rem; letter-spacing: 0.35em;
+      text-transform: uppercase; color: rgba(74,55,40,0.6); margin-bottom: 8px;
+    }
+    .detail-card-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400; color: var(--text);
+    }
+
+    /* ── CLOSING ───────────────────────────────────────── */
+    .closing {
+      text-align: center; padding: 100px 20px 80px;
+      background: var(--ivory);
+    }
+    .closing-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 4vw, 2.4rem);
+      font-style: italic; font-weight: 300;
+      color: var(--text-light); max-width: 600px;
+      margin: 0 auto 40px; line-height: 1.6;
+    }
+    .closing-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-weight: 300; color: var(--text);
+    }
+    .closing-names .amp { color: var(--blush-deep); font-style: italic; }
+
+    footer {
+      background: var(--ivory-dark);
+      border-top: 1px solid var(--blush-light);
+      padding: 28px 20px; text-align: center;
+      font-size: 0.65rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--text-light);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ─────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="cloud cloud-1" data-speed="0.25"></div>
+    <div class="cloud cloud-2" data-speed="0.42"></div>
+    <div class="cloud cloud-3" data-speed="0.18"></div>
+    <div class="cloud cloud-4" data-speed="0.35"></div>
+
+    <div class="plane-wrapper">
+      <div class="plane-trail"></div>
+      <!-- Side-view plane flying across hero -->
+      <svg width="96" height="48" viewBox="0 0 120 60" fill="none"
+           style="filter:drop-shadow(0 4px 14px rgba(0,0,0,0.1))">
+        <path d="M8 30 Q30 30 90 28 Q108 28 114 30 Q108 32 90 32 Q30 30 8 30Z"
+              fill="#FAF8F5" stroke="#C48B8F" stroke-width="0.8"/>
+        <path d="M90 28 Q112 28 118 30 Q112 32 90 32Z" fill="#E8B4B8"/>
+        <path d="M52 30 L38 8  Q50 12 65 28 Q50 30 52 30Z" fill="#C9A96E"/>
+        <path d="M52 30 L38 52 Q50 48 65 32 Q50 30 52 30Z" fill="#C9A96E" opacity="0.85"/>
+        <path d="M16 28 L10 16 Q14 22 18 28Z" fill="#E8B4B8"/>
+        <path d="M18 30 L8 22 Q13 26 20 30Z" fill="#C48B8F"/>
+        <path d="M18 30 L8 38 Q13 34 20 30Z" fill="#C48B8F"/>
+        <ellipse cx="78" cy="29.5" rx="3.5" ry="2.5" fill="#D6EAF2" stroke="#C48B8F" stroke-width="0.5"/>
+        <ellipse cx="68" cy="29.5" rx="3.5" ry="2.5" fill="#D6EAF2" stroke="#C48B8F" stroke-width="0.5"/>
+        <ellipse cx="58" cy="29.5" rx="3.5" ry="2.5" fill="#D6EAF2" stroke="#C48B8F" stroke-width="0.5"/>
+        <ellipse cx="54" cy="34" rx="6" ry="3.5" fill="#D4C5BC" stroke="#C48B8F" stroke-width="0.5"/>
+        <ellipse cx="50" cy="34" rx="3"  ry="3.5" fill="#C48B8F"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-sub">You are invited to celebrate</p>
+      <h1 class="hero-names">Luisa <span class="amp">&</span> Sebi</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-date">Summer 2026</p>
+      <p class="hero-location">Zalău, România</p>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── INTRO ─────────────────────────────────────────── -->
+  <section>
+    <div class="intro-section">
+      <p class="section-label">A new adventure begins</p>
+      <h2 class="section-title">Two hearts, one destination</h2>
+      <div class="section-divider"></div>
+      <p class="intro-text">
+        Like every great journey, this one starts with a single step —
+        and we want you there when we take it together.
+        Join us as we fly into forever.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── SCHEDULE (STICKY + SINUSOIDAL PLANE) ──────────── -->
+  <section class="schedule-section" id="schedule">
+
+    <div class="schedule-sticky">
+      <div class="sch-heading">
+        <p class="section-label">The day's itinerary</p>
+        <h2 class="section-title">Flight Schedule</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="flight-track" id="flightTrack">
+
+        <!-- Very faint centre reference -->
+        <div class="center-line"></div>
+
+        <!-- SVG: planned sine-wave route (dashed) + flown trail (solid) -->
+        <svg class="track-svg" id="trackSvg">
+          <path id="bgPath"
+                fill="none" stroke="rgba(196,139,143,0.25)"
+                stroke-width="1.5" stroke-dasharray="8 7"
+                stroke-linecap="round"/>
+          <path id="trailPath"
+                fill="none" stroke="#C48B8F"
+                stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+
+        <!-- Top-down airplane that rotates to face direction of travel -->
+        <div class="track-plane" id="trackPlane">
+          <div class="track-plane-glow"></div>
+          <!--
+            Top-down view, nose points DOWN (toward +y).
+            Rotation is computed in JS: rotate(atan2(dx,dy)).
+            0° = going straight down. +90° = going right. -90° = going left.
+          -->
+          <svg width="44" height="64" viewBox="0 0 44 64" fill="none"
+               style="filter:drop-shadow(0 2px 10px rgba(196,139,143,0.6))">
+            <!-- Fuselage -->
+            <path d="M22 4 Q25.5 4 26.5 8.5 L25 55 Q22 59 19 55 L17.5 8.5 Q18.5 4 22 4Z"
+                  fill="#FAF8F5" stroke="#C48B8F" stroke-width="1.1"/>
+            <!-- Nose cone -->
+            <path d="M18.5 8.5 Q22 2 25.5 8.5Z" fill="#E8B4B8"/>
+            <!-- Tail fins -->
+            <path d="M20 53 L14 64 L19 56Z" fill="#C48B8F"/>
+            <path d="M24 53 L30 64 L25 56Z" fill="#C48B8F"/>
+            <!-- Main wings -->
+            <path d="M18.5 26 Q1 22 0 29 Q1 36 18.5 32Z" fill="#E8B4B8"/>
+            <path d="M25.5 26 Q43 22 44 29 Q43 36 25.5 32Z" fill="#E8B4B8"/>
+            <!-- Horizontal tail wings -->
+            <path d="M19.5 48 Q9 46 7.5 51 Q10.5 54 19.5 50Z" fill="#C48B8F"/>
+            <path d="M24.5 48 Q35 46 36.5 51 Q33.5 54 24.5 50Z" fill="#C48B8F"/>
+            <!-- Cockpit windows -->
+            <ellipse cx="22" cy="17" rx="2.5" ry="3" fill="#D6EAF2" stroke="#C48B8F" stroke-width="0.7"/>
+            <ellipse cx="22" cy="25" rx="2"   ry="2.5" fill="#D6EAF2" stroke="#C48B8F" stroke-width="0.6"/>
+          </svg>
+        </div>
+
+        <!-- Schedule items — dots centred, content alternates L / R -->
+        <div class="track-item" data-side="left"  style="top: 6%">
+          <div class="item-dot"></div>
+          <div class="item-connector"></div>
+          <div class="item-content">
+            <div class="item-time">14:00</div>
+            <div class="item-title">Civil Ceremony</div>
+            <div class="item-desc">Boarding — all passengers<br>to the departure gate</div>
+          </div>
+        </div>
+
+        <div class="track-item" data-side="right" style="top: 23%">
+          <div class="item-dot"></div>
+          <div class="item-connector"></div>
+          <div class="item-content">
+            <div class="item-time">15:30</div>
+            <div class="item-title">Church Ceremony</div>
+            <div class="item-desc">Taking vows &amp; blessing<br>the journey ahead</div>
+          </div>
+        </div>
+
+        <div class="track-item" data-side="left"  style="top: 40%">
+          <div class="item-dot"></div>
+          <div class="item-connector"></div>
+          <div class="item-content">
+            <div class="item-time">17:00</div>
+            <div class="item-title">Photo Session</div>
+            <div class="item-desc">Capturing memories<br>at altitude</div>
+          </div>
+        </div>
+
+        <div class="track-item" data-side="right" style="top: 57%">
+          <div class="item-dot"></div>
+          <div class="item-connector"></div>
+          <div class="item-content">
+            <div class="item-time">18:30</div>
+            <div class="item-title">Cocktail Reception</div>
+            <div class="item-desc">Welcome drinks — reaching<br>cruising altitude</div>
+          </div>
+        </div>
+
+        <div class="track-item" data-side="left"  style="top: 74%">
+          <div class="item-dot"></div>
+          <div class="item-connector"></div>
+          <div class="item-content">
+            <div class="item-time">20:00</div>
+            <div class="item-title">Dinner &amp; Celebration</div>
+            <div class="item-desc">Feast &amp; dance through<br>the night sky</div>
+          </div>
+        </div>
+
+        <div class="track-item" data-side="right" style="top: 91%">
+          <div class="item-dot"></div>
+          <div class="item-connector"></div>
+          <div class="item-content">
+            <div class="item-time">00:00</div>
+            <div class="item-title">Wedding Cake</div>
+            <div class="item-desc">Sweet landing —<br>dessert &amp; first dance</div>
+          </div>
+        </div>
+
+      </div><!-- /flight-track -->
+    </div><!-- /schedule-sticky -->
+
+    <div id="schSpacer"></div>
+
+  </section>
+
+  <!-- ── DETAILS STRIP ──────────────────────────────────── -->
+  <section class="details-strip">
+    <div class="details-grid">
+      <div>
+        <div class="detail-card-icon">
+          <svg viewBox="0 0 44 44" fill="none">
+            <rect x="4" y="8" width="36" height="32" rx="3" stroke="white" stroke-width="2"/>
+            <line x1="4"  y1="17" x2="40" y2="17" stroke="white" stroke-width="2"/>
+            <line x1="14" y1="4"  x2="14" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <line x1="30" y1="4"  x2="30" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <rect x="12" y="23" width="6" height="5" rx="1" fill="white"/>
+            <rect x="26" y="23" width="6" height="5" rx="1" fill="white"/>
+          </svg>
+        </div>
+        <div class="detail-card-label">Date</div>
+        <div class="detail-card-value">Summer 2026</div>
+      </div>
+      <div>
+        <div class="detail-card-icon">
+          <svg viewBox="0 0 44 44" fill="none">
+            <path d="M22 4C15.4 4 10 9.4 10 16c0 9 12 24 12 24S34 25 34 16c0-6.6-5.4-12-12-12Z"
+                  stroke="white" stroke-width="2"/>
+            <circle cx="22" cy="16" r="4" fill="white"/>
+          </svg>
+        </div>
+        <div class="detail-card-label">Location</div>
+        <div class="detail-card-value">Zalău, România</div>
+      </div>
+      <div>
+        <div class="detail-card-icon">
+          <svg viewBox="0 0 44 44" fill="none">
+            <path d="M22 8C22 8 26 10 26 14C26 16 24 17 22 17C20 17 18 16 18 14C18 10 22 8 22 8Z"
+                  stroke="white" stroke-width="1.8"/>
+            <path d="M22 17L6 28L6 32L38 32L38 28L22 17Z"
+                  stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="detail-card-label">Dress Code</div>
+        <div class="detail-card-value">Elegant Attire</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CLOSING ────────────────────────────────────────── -->
+  <section class="closing">
+    <p class="closing-quote">
+      "Not all those who wander are lost —<br>
+      but we found each other, and that is everything."
+    </p>
+    <div class="section-divider" style="margin-bottom:32px"></div>
+    <p class="closing-names">Luisa <span class="amp">&</span> Sebi</p>
+  </section>
+
+  <footer>
+    <p>With love &nbsp;·&nbsp; Zalău 2026 &nbsp;·&nbsp; Luisa &amp; Sebi</p>
+  </footer>
+
+  <script>
+    // ── CONFIG ─────────────────────────────────────────────
+    const SCROLL_RANGE = 1900;
+
+    // Item Y positions as fractions of track height — must match style="top:X%"
+    const ITEM_Y_FRACS = [0.06, 0.23, 0.40, 0.57, 0.74, 0.91];
+
+    // Sine wave: the plane crosses the centre line at each item's Y position.
+    // Phase is set so sin = 0 (zero-crossing) at each item, and
+    // the wave swings left between items 0→1 and right between 1→2, etc.
+    // Period = 2 × item_gap = 2 × 0.17 = 0.34 (of track height).
+    const SINE_PERIOD_FRAC = 0.34;   // fraction of track height
+    const SINE_PHASE_FRAC  = 0.06;   // fraction of track height (= first item Y)
+    // Amplitude is computed from track dimensions in buildPath().
+
+    // ── ELEMENTS ───────────────────────────────────────────
+    const clouds      = document.querySelectorAll('.cloud');
+    const schedSec    = document.getElementById('schedule');
+    const schSpacer   = document.getElementById('schSpacer');
+    const flightTrack = document.getElementById('flightTrack');
+    const bgPath      = document.getElementById('bgPath');
+    const trailPath   = document.getElementById('trailPath');
+    const trackPlane  = document.getElementById('trackPlane');
+    const trackItems  = document.querySelectorAll('.track-item');
+
+    schSpacer.style.height = SCROLL_RANGE + 'px';
+
+    // ── STATE ──────────────────────────────────────────────
+    let currentProg  = 0;
+    let targetProg   = 0;
+    let pathTotalLen = 0;
+    let wpLengths    = [];   // path-length at each item waypoint
+
+    // ── BUILD SINUSOIDAL PATH ──────────────────────────────
+    // Samples N points of x(y) = cx + A·sin(2π(y − phase)/period)
+    // and stitches them into an SVG polyline.
+    // The sine is phased so it crosses zero (x = cx) at every item's Y.
+    function buildPath() {
+      const W = flightTrack.offsetWidth;
+      const H = flightTrack.offsetHeight;
+      if (!W || !H) return;
+
+      const cx     = W * 0.5;
+      const period = SINE_PERIOD_FRAC * H;
+      const phase  = SINE_PHASE_FRAC  * H;
+      // Amplitude: visible swing but never reaches the edge
+      const amp    = W * 0.23;
+
+      // x(y) — the sine formula
+      function sineX(y) {
+        return cx + amp * Math.sin(2 * Math.PI * (y - phase) / period);
+      }
+
+      // Build polyline with 300 segments for smooth rendering
+      const N  = 300;
+      const pts = [];
+      for (let i = 0; i <= N; i++) {
+        const y = (i / N) * H;
+        pts.push(`${sineX(y).toFixed(2)},${y.toFixed(2)}`);
+      }
+      const d = 'M ' + pts.join(' L ');
+      bgPath.setAttribute('d', d);
+      trailPath.setAttribute('d', d);
+
+      pathTotalLen = bgPath.getTotalLength();
+      trailPath.style.strokeDasharray  = pathTotalLen;
+      trailPath.style.strokeDashoffset = pathTotalLen; // fully hidden
+
+      // ── Locate path-length at each waypoint (binary search on Y) ──
+      // Y is monotonically increasing along our path, so this is safe.
+      wpLengths = ITEM_Y_FRACS.map(yf => {
+        const targetY = yf * H;
+        let lo = 0, hi = pathTotalLen;
+        for (let i = 0; i < 52; i++) {
+          const mid = (lo + hi) * 0.5;
+          bgPath.getPointAtLength(mid).y < targetY ? (lo = mid) : (hi = mid);
+        }
+        return (lo + hi) * 0.5;
+      });
+    }
+
+    // ── SCROLL HANDLER ─────────────────────────────────────
+    function onScroll() {
+      const scrollY = window.scrollY;
+
+      // Hero cloud parallax
+      clouds.forEach(c => {
+        c.style.transform = `translateY(${scrollY * +c.dataset.speed}px)`;
+      });
+
+      // Schedule progress (0 → 1)
+      const scrollInto = scrollY - schedSec.offsetTop;
+      targetProg = Math.max(0, Math.min(1, scrollInto / SCROLL_RANGE));
+    }
+
+    // ── ANIMATION LOOP ─────────────────────────────────────
+    function tick() {
+      // Lerp toward target for smooth easing
+      currentProg += (targetProg - currentProg) * 0.072;
+
+      if (pathTotalLen > 0) {
+        const curLen = currentProg * pathTotalLen;
+
+        // ── Current position on path ──
+        const pt = bgPath.getPointAtLength(curLen);
+
+        // ── Direction: sample tangent with a small delta ──
+        // Use a larger delta so the banking angle smooths over the tight curves
+        const dt = Math.min(pathTotalLen * 0.015, 12);
+        const pA = bgPath.getPointAtLength(Math.max(0, curLen - dt));
+        const pB = bgPath.getPointAtLength(Math.min(pathTotalLen, curLen + dt));
+        const dx = pB.x - pA.x;
+        const dy = pB.y - pA.y;
+
+        // For top-down plane (nose = +y = down):
+        // angle = 0°  → going straight down
+        // angle = +90° → going right
+        // angle = -90° → going left
+        const angle = Math.atan2(dx, dy) * (180 / Math.PI);
+
+        // ── Update plane ──
+        trackPlane.style.left      = pt.x + 'px';
+        trackPlane.style.top       = pt.y + 'px';
+        trackPlane.style.transform = `translate(-50%, -50%) rotate(${angle.toFixed(2)}deg)`;
+
+        // ── Grow trail ──
+        trailPath.style.strokeDashoffset = Math.max(0, pathTotalLen - curLen);
+
+        // ── Activate items when plane has passed their waypoint ──
+        trackItems.forEach((item, i) => {
+          if (curLen >= wpLengths[i]) item.classList.add('active');
+        });
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    // ── INIT ───────────────────────────────────────────────
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', buildPath);
+    requestAnimationFrame(() => { buildPath(); onScroll(); tick(); });
+  </script>
+
+</body>
+</html>
