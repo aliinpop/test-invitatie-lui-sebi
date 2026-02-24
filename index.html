@@ -1065,7 +1065,7 @@
     // }
     // ------------------------------
 
-    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyPtkd1Qk7ZkXcAHFErav10q83hVjV0Ij-owwjpgzb0vBVjCsvSPaicbMMP1YVaq8HT/exec'; // ← replace after setup
+    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzkNLQL1-7n5z9OMz1RoZzbw1pNKoosNfL7cAohPYN8USoR6nC9VAfIwhoFi5T3mugK/exec'; // ← replace after setup
 
     const rsvpForm        = document.getElementById('rsvpForm');
     const rsvpSuccess     = document.getElementById('rsvpSuccess');
@@ -1125,7 +1125,8 @@
         // but the data still lands in the sheet.
         await fetch(SHEET_URL, {
           method:  'POST',
-          headers: { 'Content-Type': 'application/json' },
+          mode:    'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
           body:    JSON.stringify(payload),
         });
       } catch (_) {
