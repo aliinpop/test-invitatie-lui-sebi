@@ -1123,9 +1123,8 @@
       try {
         // Using no-cors because Apps Script redirects; we can't read the response
         // but the data still lands in the sheet.
-        await fetch("https://script.google.com/macros/s/AKfycbyPtkd1Qk7ZkXcAHFErav10q83hVjV0Ij-owwjpgzb0vBVjCsvSPaicbMMP1YVaq8HT/exec", {
+        await fetch(SHEET_URL, {
           method:  'POST',
-          mode:    'no-cors',
           headers: { 'Content-Type': 'application/json' },
           body:    JSON.stringify(payload),
         });
