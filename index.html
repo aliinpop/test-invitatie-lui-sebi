@@ -1075,7 +1075,7 @@
         const pB = bgPath.getPointAtLength(Math.min(pathTotalLen, curLen + dt));
         const dx = pB.x - pA.x;
         const dy = pB.y - pA.y;
-        const angle = Math.atan2(dx, dy) * (180 / Math.PI);
+        const angle = Math.atan2(dx, dy) * (180 / Math.PI) + 180;
 
         trackPlane.style.left      = pt.x + 'px';
         trackPlane.style.top       = pt.y + 'px';
