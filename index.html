@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sebi & Luisa — Nuntă · 3 Octombrie 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ivory:       #FDF8F3;
+      --ivory-dark:  #F3EBE0;
+      --beige:       #E5D9CB;
+      --blush:       #D4C4B0;
+      --blush-deep:  #B09A83;
+      --blush-light: #EDE4D8;
+      --burgundy:    #7A2E3A;
+      --text:        #4A3A2E;
+      --text-light:  #7D6B5D;
+      --gold:        #B89B6A;
+      --sky:         #D6EAF2;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--ivory);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ──────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      background: linear-gradient(180deg,
+        rgba(164,206,228,0.7) 0%, rgba(184,218,236,0.6) 15%, rgba(200,228,240,0.45) 30%,
+        rgba(220,238,248,0.3) 50%, rgba(238,247,251,0.15) 68%, var(--ivory) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .cloud {
+      position: absolute;
+      background: #fff;
+      border-radius: 50px;
+      will-change: transform;
+    }
+    .cloud::before, .cloud::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+    }
+    .cloud-1 { width: 160px; height: 50px; top: 18%; left: 6%;  opacity: 0.82; }
+    .cloud-1::before { width: 80px;  height: 80px;  top: -40px; left: 20px; }
+    .cloud-1::after  { width: 60px;  height: 60px;  top: -32px; left: 72px; }
+    .cloud-2 { width: 110px; height: 36px; top: 31%; right: 10%; opacity: 0.65; }
+    .cloud-2::before { width: 56px;  height: 56px;  top: -30px; left: 12px; }
+    .cloud-2::after  { width: 44px;  height: 44px;  top: -24px; left: 50px; }
+    .cloud-3 { width: 200px; height: 60px; top: 11%; left: 38%; opacity: 0.55; }
+    .cloud-3::before { width: 100px; height: 100px; top: -52px; left: 28px; }
+    .cloud-3::after  { width: 80px;  height: 80px;  top: -42px; left: 92px; }
+    .cloud-4 { width: 130px; height: 42px; top: 44%; left: 22%; opacity: 0.60; }
+    .cloud-4::before { width: 65px;  height: 65px;  top: -36px; left: 16px; }
+    .cloud-4::after  { width: 50px;  height: 50px;  top: -28px; left: 60px; }
+
+    /* Hero airplane entrance animation */
+    .plane-wrapper {
+      position: absolute;
+      top: 15%; left: -280px;
+      animation: heroFly 6s ease-in-out forwards;
+      z-index: 5;
+    }
+    .plane-trail {
+      position: absolute;
+      top: 50%; right: 100%;
+      transform: translateY(-50%);
+      width: 300px; height: 3px;
+      background: linear-gradient(to left, rgba(255,255,255,0.9), transparent);
+      border-radius: 2px;
+    }
+    .plane-trail::before {
+      content: '';
+      position: absolute;
+      top: -3px; left: 0; right: 0; height: 9px;
+      background: linear-gradient(to left, rgba(255,255,255,0.35), transparent);
+      border-radius: 4px;
+    }
+    @keyframes heroFly {
+      0%   { left: -280px; top: 28%; opacity: 0; }
+      10%  { opacity: 1; }
+      45%  { top: 18%; }
+      55%  { top: 20%; }
+      90%  { opacity: 1; }
+      100% { left: calc(100% + 280px); top: 19%; opacity: 0; }
+    }
+
+    /* Hero content fades in after plane arrives */
+    .hero-content {
+      position: relative; z-index: 10;
+      text-align: center; padding: 0 20px;
+    }
+    .hero-sub {
+      font-size: 0.72rem; letter-spacing: 0.38em;
+      text-transform: uppercase; color: var(--text-light);
+      margin-bottom: 18px; opacity: 0;
+      animation: fadeUp 1s ease forwards 1.8s;
+    }
+    .hero-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 11vw, 8rem);
+      font-weight: 300; line-height: 1;
+      color: var(--text); letter-spacing: 0.02em;
+      opacity: 0; animation: fadeUp 1s ease forwards 2.1s;
+    }
+    .hero-names .amp {
+      display: inline-block; color: var(--burgundy);
+      font-style: italic; font-size: 0.85em;
+      margin: 0 0.15em; transform: rotate(-3deg);
+    }
+    .hero-divider {
+      width: 60px; height: 1px; background: var(--burgundy);
+      margin: 24px auto; opacity: 0;
+      animation: fadeUp 1s ease forwards 2.4s;
+    }
+    .hero-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      font-style: italic; font-weight: 400;
+      color: var(--text-light); margin-bottom: 8px;
+      opacity: 0; animation: fadeUp 1s ease forwards 2.6s;
+    }
+    .hero-location {
+      font-size: 0.7rem; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--text-light);
+      opacity: 0; animation: fadeUp 1s ease forwards 2.8s;
+    }
+    .hero-scroll {
+      position: absolute; bottom: 36px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column;
+      align-items: center; gap: 8px;
+      opacity: 0; animation: fadeUp 1s ease forwards 3.2s;
+    }
+    .hero-scroll span {
+      font-size: 0.6rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--text-light);
+    }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--burgundy), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(24px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ── SHARED ────────────────────────────────────────── */
+    .section-label {
+      font-size: 0.85rem; letter-spacing: 0.4em;
+      text-transform: uppercase; color: var(--burgundy);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300; color: var(--text); margin-bottom: 16px;
+    }
+    .section-divider {
+      width: 48px; height: 1px;
+      background: var(--blush); margin: 0 auto 48px;
+    }
+
+    /* ── QUOTE & FAMILIES ─────────────────────────────── */
+    .families-section {
+      padding: 90px 20px;
+      background: var(--ivory);
+      text-align: center;
+    }
+    .families-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+      font-style: italic; font-weight: 300;
+      color: var(--text-light);
+      max-width: 620px; margin: 0 auto 60px;
+      line-height: 1.7;
+    }
+    .families-grid {
+      max-width: 720px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px 40px;
+    }
+    .family-pair {
+      text-align: center;
+    }
+    .family-role {
+      font-size: 0.6rem; letter-spacing: 0.35em;
+      text-transform: uppercase; color: var(--burgundy);
+      margin-bottom: 10px;
+    }
+    .family-group-label {
+      grid-column: 1 / -1; text-align: center;
+      font-size: 0.6rem; letter-spacing: 0.35em;
+      text-transform: uppercase; color: var(--burgundy);
+      margin-bottom: -24px;
+    }
+    .family-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 400;
+      color: var(--text); line-height: 1.6;
+    }
+    @media (max-width: 500px) {
+      .families-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+
+    /* ── SCHEDULE — AUTO-FLY PLANE ──────────────────────── */
+    .schedule-section {
+      position: relative;
+      background: var(--ivory-dark);
+      padding-bottom: 40px;
+    }
+    .sch-heading {
+      padding: 60px 20px 16px;
+      text-align: center;
+    }
+    .sch-heading .section-divider { margin-bottom: 0; }
+
+    .flight-track {
+      position: relative;
+      height: 70vh;
+      min-height: 600px;
+      width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .track-svg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      overflow: visible; pointer-events: none;
+    }
+
+    .center-line {
+      position: absolute;
+      left: 50%; top: 0; bottom: 0;
+      width: 1px;
+      transform: translateX(-50%);
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(122,46,58,0.12) 0px, rgba(122,46,58,0.12) 6px,
+        transparent 6px, transparent 14px
+      );
+      pointer-events: none;
+    }
+
+    .track-plane {
+      position: absolute; z-index: 10;
+      pointer-events: none;
+      will-change: transform, left, top;
+    }
+    .track-plane-glow {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90px; height: 90px;
+      background: radial-gradient(circle, rgba(176,154,131,0.4) 0%, transparent 68%);
+      border-radius: 50%;
+      animation: glowPulse 2.4s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+      0%,100% { opacity:0.7; transform:translate(-50%,-50%) scale(1);    }
+      50%      { opacity:1;   transform:translate(-50%,-50%) scale(1.32); }
+    }
+
+    .track-item {
+      position: absolute; left: 0; right: 0;
+      transform: translateY(-50%); z-index: 5;
+    }
+    .item-dot {
+      position: absolute; left: 50%; top: 0;
+      transform: translate(-50%, -50%);
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--blush-light); border: 2px solid var(--blush);
+      z-index: 6;
+      transition: background 0.4s, width 0.4s, height 0.4s, box-shadow 0.4s;
+    }
+    .track-item.active .item-dot {
+      background: var(--burgundy); width: 15px; height: 15px;
+      box-shadow: 0 0 0 6px rgba(122,46,58,0.15);
+    }
+    .item-connector {
+      position: absolute; top: 0; height: 1px;
+      background: var(--blush); transform: translateY(-50%);
+      width: 0; z-index: 3;
+      transition: width 0.4s ease 0.15s;
+    }
+    .track-item[data-side="left"]  .item-connector { right: calc(50% + 7px); }
+    .track-item[data-side="right"] .item-connector { left:  calc(50% + 7px); }
+    .track-item.active .item-connector { width: 24px; }
+
+    .item-content {
+      position: absolute; top: 0;
+      max-width: min(210px, calc(50% - 44px));
+      opacity: 0;
+      transition: opacity 0.5s ease 0.25s, transform 0.5s ease 0.25s;
+      background: var(--ivory-dark);
+      padding: 5px 8px;
+      border-radius: 4px;
+    }
+    .track-item[data-side="left"] .item-content {
+      right: calc(50% + 34px);
+      text-align: right;
+      transform: translateY(-50%) translateX(12px);
+    }
+    .track-item[data-side="left"].active .item-content {
+      opacity: 1; transform: translateY(-50%) translateX(0);
+    }
+    .track-item[data-side="right"] .item-content {
+      left: calc(50% + 34px);
+      text-align: left;
+      transform: translateY(-50%) translateX(-12px);
+    }
+    .track-item[data-side="right"].active .item-content {
+      opacity: 1; transform: translateY(-50%) translateX(0);
+    }
+
+    .item-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 300; color: var(--burgundy); line-height: 1;
+    }
+    .item-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.82rem, 2vw, 1rem);
+      font-weight: 600; color: var(--text); margin-top: 5px;
+    }
+    .item-desc {
+      font-size: 0.65rem; font-weight: 300;
+      letter-spacing: 0.04em; color: var(--text-light);
+      margin-top: 3px; line-height: 1.55;
+    }
+    .item-location {
+      font-size: 0.72rem; font-weight: 400;
+      letter-spacing: 0.08em; color: var(--gold);
+      margin-top: 4px;
+    }
+    .item-location a {
+      color: inherit; text-decoration: none;
+    }
+    .item-location a:hover { text-decoration: underline; }
+
+    @media (max-width: 500px) {
+      .item-desc { display: none; }
+      .flight-track { height: 100vh; min-height: 500px; }
+    }
+
+    /* ── RSVP ──────────────────────────────────────────── */
+    .rsvp-section {
+      background: var(--ivory-dark);
+      padding: 90px 20px;
+    }
+    .rsvp-wrap {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .rsvp-form {
+      margin-top: 0;
+      text-align: left;
+    }
+    .form-group {
+      margin-bottom: 28px;
+    }
+    .form-group > label:first-child,
+    .form-group > .form-label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--ivory);
+      border: 1px solid var(--blush);
+      border-radius: 6px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.25s;
+      resize: vertical;
+    }
+    .form-group input[type="text"]:focus,
+    .form-group textarea:focus {
+      border-color: var(--blush-deep);
+    }
+
+    /* Yes / No toggle */
+    .attend-toggle {
+      display: flex;
+      gap: 12px;
+    }
+    .attend-toggle input { display: none; }
+    .attend-toggle label {
+      flex: 1;
+      padding: 12px;
+      border: 1.5px solid var(--blush);
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .attend-toggle input:checked + label {
+      border-color: var(--burgundy);
+      background: var(--blush-light);
+      color: var(--text);
+    }
+
+    /* Conditional fields */
+    .conditional-fields {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.4s ease;
+    }
+    .conditional-fields.visible {
+      max-height: 2000px;
+      opacity: 1;
+    }
+
+    /* Number stepper */
+    .num-stepper {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      border: 1.5px solid var(--blush);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .num-btn {
+      width: 40px; height: 40px;
+      border: none;
+      background: var(--ivory);
+      color: var(--blush-deep);
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      line-height: 1;
+    }
+    .num-btn:hover { background: var(--blush-light); }
+    .num-display {
+      width: 48px;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--text);
+      border-left: 1px solid var(--blush);
+      border-right: 1px solid var(--blush);
+      padding: 4px 0;
+    }
+
+    /* Steppers side by side */
+    .steppers-row {
+      display: flex;
+      gap: 24px;
+    }
+    .stepper-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .stepper-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    /* Child preference cards */
+    .child-card {
+      background: var(--ivory);
+      border: 1px solid var(--blush);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+      animation: fadeUp 0.35s ease;
+    }
+    .child-card-header {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .child-radio-row {
+      display: flex;
+      gap: 8px;
+    }
+    .child-radio-row label {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      color: var(--text-light);
+      padding: 9px 12px;
+      border: 1px solid var(--blush-light);
+      border-radius: 6px;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .child-radio-row label:hover { border-color: var(--blush); }
+    .child-radio-row input { display: none; }
+    .child-radio-row .dot {
+      width: 14px; height: 14px;
+      border: 1.5px solid var(--blush);
+      border-radius: 50%;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .child-radio-row .dot::after {
+      content: '';
+      position: absolute;
+      top: 2px; left: 2px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: transparent;
+      transition: background 0.2s;
+    }
+    .child-radio-row input:checked + .dot {
+      border-color: var(--burgundy);
+    }
+    .child-radio-row input:checked + .dot::after {
+      background: var(--burgundy);
+    }
+    .child-radio-row input:checked ~ span { color: var(--text); }
+
+    .adult-name-input {
+      width: 100%; padding: 8px 12px; margin-bottom: 12px;
+      border: 1px solid var(--blush); border-radius: 6px;
+      font-family: 'Montserrat', sans-serif; font-size: 0.82rem;
+      color: var(--text); background: var(--ivory);
+      outline: none;
+    }
+    .adult-name-input:focus { border-color: var(--burgundy); }
+
+    /* Submit button */
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--burgundy);
+      color: var(--ivory);
+      border: none;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.15s;
+      margin-top: 8px;
+    }
+    .submit-btn:hover  { background: #5E222D; }
+    .submit-btn:active { transform: scale(0.98); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    /* Contact note */
+    .contact-note {
+      margin-top: 32px;
+      padding: 24px 20px;
+      background: var(--ivory);
+      border: 1.5px solid var(--blush);
+      border-radius: 12px;
+      text-align: center;
+      line-height: 2;
+    }
+    .contact-note p {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+    .contact-note a {
+      color: var(--text);
+      text-decoration: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .contact-note a:hover { color: var(--burgundy); }
+    .contact-note .contact-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      display: block;
+      margin-bottom: 2px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+    }
+
+    /* ── SUCCESS / COUNTDOWN ──────────────────────────── */
+    .rsvp-success {
+      display: none;
+      text-align: center;
+      padding: 40px 0;
+      animation: fadeUp 0.6s ease;
+    }
+    .rsvp-success.show { display: block; }
+    .success-plane {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      display: block;
+      animation: successFly 1.2s ease forwards;
+    }
+    @keyframes successFly {
+      from { transform: translateX(-60px) rotate(-10deg); opacity: 0; }
+      to   { transform: translateX(0)    rotate(0deg);   opacity: 1; }
+    }
+    .rsvp-success h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 300;
+      color: var(--text); margin-bottom: 10px;
+    }
+    .rsvp-success p {
+      font-size: 0.85rem; color: var(--text-light);
+      margin-bottom: 30px;
+    }
+
+    /* Countdown */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .countdown-unit {
+      text-align: center;
+      min-width: 72px;
+    }
+    .countdown-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 6vw, 3.2rem);
+      font-weight: 300;
+      color: var(--burgundy);
+      line-height: 1;
+    }
+    .countdown-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 6px;
+    }
+    .countdown-separator {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      color: var(--blush);
+      align-self: flex-start;
+      line-height: 1;
+    }
+
+    /* ── FOOTER ────────────────────────────────────────── */
+    footer {
+      background: var(--ivory-dark);
+      border-top: 1px solid var(--blush-light);
+      padding: 28px 20px; text-align: center;
+      font-size: 0.65rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--text-light);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ─────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="cloud cloud-1" data-speed="0.25"></div>
+    <div class="cloud cloud-2" data-speed="0.42"></div>
+    <div class="cloud cloud-3" data-speed="0.18"></div>
+    <div class="cloud cloud-4" data-speed="0.35"></div>
+
+    <div class="plane-wrapper">
+      <div class="plane-trail"></div>
+      <!-- Top-down jet, sharp angles, realistic wing geometry, nose right -->
+      <svg width="110" height="92" viewBox="0 0 62 52" fill="#4A3A2E"
+           style="filter:drop-shadow(0 2px 8px rgba(0,0,0,0.12))">
+        <path d="M59 26 C54 30 44 31 32 31 L14 30 C9 30 4 28 3 26 C4 24 9 22 14 22 L32 21 C44 21 54 22 59 26Z"/>
+        <path d="M35 22 L22 3 L18 3 L25 22Z"/>
+        <path d="M35 30 L22 49 L18 49 L25 30Z"/>
+        <rect x="18" y="12" width="12" height="7" rx="3"/>
+        <rect x="18" y="33" width="12" height="7" rx="3"/>
+        <path d="M16 22 L12 13 L9 13 L13 22Z"/>
+        <path d="M16 30 L12 39 L9 39 L13 30Z"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <!-- <p class="hero-sub">Sunteți invitați să sărbătoriți</p> -->
+      <h1 class="hero-names">Sebi <span class="amp">&</span> Luisa</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-date">3 Octombrie 2026</p>
+      <p class="hero-location">Zalău, România</p>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── QUOTE & FAMILIES ─────────────────────────────── -->
+  <section class="families-section">
+    <!-- <p class="section-label">O poveste de dragoste începe</p>
+    <h2 class="section-title">Familiile noastre</h2> -->
+    <!-- <div class="section-divider"></div> -->
+
+    <p class="families-quote">
+      Nu e doar o invitație, e o mică promisiune de bucurie, zâmbete și clipe care merită trăite împreună.
+    </p>
+    <div class="section-divider"></div>
+    <div class="families-grid">
+      <div class="family-group-label">Cu iubirea părinților</div>
+      <div class="family-pair">
+        <div class="family-names">
+          Ioan și Vera Micle
+        </div>
+      </div>
+      <div class="family-pair">
+        <div class="family-names">
+          Vasile și Mariana Șamșodan
+        </div>
+      </div>
+      <div class="family-group-label">Sub ocrotirea nașilor</div>
+      <div class="family-pair">
+        <div class="family-names">
+          Dan și Natalia Șandor
+        </div>
+      </div>
+      <div class="family-pair">
+        <div class="family-names">
+          Florin Bloj și Laura Bode
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SCHEDULE (AUTO-FLY PLANE) ────────────────────── -->
+  <section class="schedule-section" id="schedule">
+
+    <div class="sch-heading">
+      <p class="section-label">Itinerariul zilei</p>
+      <!-- <h2 class="section-title">Program</h2> -->
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="flight-track" id="flightTrack">
+
+      <div class="center-line"></div>
+
+      <svg class="track-svg" id="trackSvg">
+        <path id="bgPath"
+              fill="none" stroke="rgba(122,46,58,0.2)"
+              stroke-width="1.5" stroke-dasharray="8 7"
+              stroke-linecap="round"/>
+        <path id="trailPath"
+              fill="none" stroke="#7A2E3A"
+              stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+
+      <div class="track-plane" id="trackPlane">
+        <div class="track-plane-glow"></div>
+        <!-- Clean line-art top-down airplane (nose = down = +y) -->
+        <!-- Simple solid silhouette, top-down, nose pointing down -->
+        <svg width="52" height="62" viewBox="0 0 52 62" fill="#B09A83">
+          <!-- Fuselage (nose at bottom, tail at top) -->
+          <path d="M26 59 C22 54 21 44 21 32 L22 14 C22 9 24 4 26 3
+                   C28 4 30 9 30 14 L31 32 C31 44 30 54 26 59Z"/>
+          <!-- Left wing: LE ~25° sweep, TE ~7°, sharp corners -->
+          <path d="M22 35 L3 22 L3 18 L22 25Z"/>
+          <!-- Right wing -->
+          <path d="M30 35 L49 22 L49 18 L30 25Z"/>
+          <!-- Left engine nacelle -->
+          <rect x="12" y="18" width="7" height="12" rx="3"/>
+          <!-- Right engine nacelle -->
+          <rect x="33" y="18" width="7" height="12" rx="3"/>
+          <!-- Left horizontal stabilizer -->
+          <path d="M22 16 L13 12 L13 9 L22 13Z"/>
+          <!-- Right horizontal stabilizer -->
+          <path d="M30 16 L39 12 L39 9 L30 13Z"/>
+        </svg>
+      </div>
+
+      <!-- Schedule items with locations -->
+      <div class="track-item" data-side="left" style="top: 15%">
+        <div class="item-dot"></div>
+        <div class="item-connector"></div>
+        <div class="item-content">
+          <div class="item-time">15:00</div>
+          <div class="item-title">Cununia Civilă</div>
+          <div class="item-location"><a href="https://maps.app.goo.gl/YknAvk6khMBuQdFZA" target="_blank" rel="noopener">📍 Primaria Comunei Bocșa</a></div>
+        </div>
+      </div>
+
+      <div class="track-item" data-side="right" style="top: 50%">
+        <div class="item-dot"></div>
+        <div class="item-connector"></div>
+        <div class="item-content">
+          <div class="item-time">16:00</div>
+          <div class="item-title">Cununia Religioasă</div>
+          <div class="item-location"><a href="https://maps.app.goo.gl/rr78WLRrghhMULMC7" target="_blank" rel="noopener">📍 Biserica Dreptul Simeon și Fecioara Maria</a></div>
+        </div>
+      </div>
+
+      <div class="track-item" data-side="left" style="top: 85%">
+        <div class="item-dot"></div>
+        <div class="item-connector"></div>
+        <div class="item-content">
+          <div class="item-time">19:00</div>
+          <div class="item-title">Petrecere</div>
+          <div class="item-location"><a href="https://maps.app.goo.gl/ppfpsDQMF1Rh5pws9" target="_blank" rel="noopener">📍 Colț de Rai - Royal Garden</a></div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ── RSVP ──────────────────────────────────────────── -->
+  <section class="rsvp-section" id="rsvp">
+    <div class="rsvp-wrap">
+
+      <p class="section-label">Confirmă prezența</p>
+      <div class="section-divider"></div>
+
+      <form id="rsvpForm" class="rsvp-form" novalidate>
+
+        <!-- Name -->
+        <div class="form-group">
+          <label for="rsvp-name">Nume</label>
+          <input id="rsvp-name" type="text" name="name"
+                 placeholder="Prenume și nume" required />
+        </div>
+
+        <!-- Attending yes / no -->
+        <div class="form-group">
+          <label>Vei participa?</label>
+          <div class="attend-toggle">
+            <input type="radio" id="att-yes" name="attending" value="yes" />
+            <label for="att-yes">Da, voi fi acolo!</label>
+
+            <input type="radio" id="att-no"  name="attending" value="no"  />
+            <label for="att-no">Din păcate, nu pot ajunge</label>
+          </div>
+        </div>
+
+        <!-- Conditional: only when attending = yes -->
+        <div class="conditional-fields" id="conditionalFields">
+
+          <!-- Adults & Children count — side by side -->
+          <div class="form-group">
+            <label>Câți invitați?</label>
+            <div class="steppers-row">
+              <div class="stepper-col">
+                <span class="stepper-label">Adulți</span>
+                <div class="num-stepper">
+                  <button type="button" class="num-btn" data-target="adults" data-dir="-1">−</button>
+                  <div class="num-display" id="adultsDisplay">1</div>
+                  <button type="button" class="num-btn" data-target="adults" data-dir="1">+</button>
+                </div>
+                <input type="hidden" name="adults" id="adultsInput" value="1" />
+              </div>
+              <div class="stepper-col">
+                <span class="stepper-label">Copii</span>
+                <div class="num-stepper">
+                  <button type="button" class="num-btn" data-target="children" data-dir="-1">−</button>
+                  <div class="num-display" id="childrenDisplay">0</div>
+                  <button type="button" class="num-btn" data-target="children" data-dir="1">+</button>
+                </div>
+                <input type="hidden" name="children" id="childrenInput" value="0" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic adult menu cards (built by JS) -->
+          <div id="adultsCards"></div>
+
+          <!-- Dynamic child preference cards (built by JS) -->
+          <div id="childrenCards"></div>
+
+          <!-- Song request -->
+          <div class="form-group">
+            <label for="rsvp-song">Preferințe muzicale</label>
+            <input id="rsvp-song" type="text" name="song"
+                   placeholder="Artist — Titlul melodiei" />
+          </div>
+
+          <!-- Notes -->
+          <div class="form-group">
+            <label for="rsvp-notes">Alte mențiuni (optional)</label>
+            <textarea id="rsvp-notes" name="notes" rows="3"
+                      ></textarea>
+          </div>
+
+        </div><!-- /conditional-fields -->
+
+        <button type="submit" class="submit-btn" id="submitBtn" disabled>
+          Trimite răspuns
+        </button>
+
+        <!-- Contact note -->
+        <div class="contact-note">
+          <p>Contact</p>
+          <div class="contact-row">
+            <div>
+              <a href="tel:+40700000000">Sebi: +40 741 551 813</a>
+            </div>
+            <div>
+              <a href="tel:+40700000001">Luisa: +40 743 671 385</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div>
+              <a href="tel:+40700000002">Vera: +40 757 959 144</a>
+            </div>
+            <div>
+              <a href="tel:+40700000003">Mariana: +40 733 942 085</a>
+            </div>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- Success state with countdown -->
+      <div class="rsvp-success" id="rsvpSuccess">
+        <span class="success-plane">✈</span>
+        <h3>Confirmarea ta este pe drum!</h3>
+        <p>Mulțumim — Sebi &amp; Luisa abia așteaptă să sărbătorească alături de tine.</p>
+
+        <div class="countdown" id="countdown">
+          <div class="countdown-unit">
+            <div class="countdown-value" id="cd-days">---</div>
+            <div class="countdown-label">Zile</div>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-unit">
+            <div class="countdown-value" id="cd-hours">--</div>
+            <div class="countdown-label">Ore</div>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-unit">
+            <div class="countdown-value" id="cd-mins">--</div>
+            <div class="countdown-label">Minute</div>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-unit">
+            <div class="countdown-value" id="cd-secs">--</div>
+            <div class="countdown-label">Secunde</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>Cu dragoste &nbsp;·&nbsp; 3 Octombrie 2026 &nbsp;·&nbsp; Sebi &amp; Luisa</p>
+  </footer>
+
+  <script>
+    // ── SCHEDULE CONFIG ───────────────────────────────────
+    const ITEM_Y_FRACS = [0.15, 0.50, 0.85];
+    const SINE_PERIOD_FRAC = 0.34;
+    const SINE_PHASE_FRAC  = 0.10;
+    const AUTO_FLY_DURATION = 8000; // 8 seconds total flight time
+
+    // ── ELEMENTS ──────────────────────────────────────────
+    const clouds      = document.querySelectorAll('.cloud');
+    const flightTrack = document.getElementById('flightTrack');
+    const bgPath      = document.getElementById('bgPath');
+    const trailPath   = document.getElementById('trailPath');
+    const trackPlane  = document.getElementById('trackPlane');
+    const trackItems  = document.querySelectorAll('.track-item');
+
+    let pathTotalLen = 0;
+    let wpLengths    = [];
+    let autoFlyStarted = false;
+    let autoFlyStart   = 0;
+
+    function buildPath() {
+      const W = flightTrack.offsetWidth;
+      const H = flightTrack.offsetHeight;
+      if (!W || !H) return;
+
+      const cx     = W * 0.5;
+      const period = SINE_PERIOD_FRAC * H;
+      const phase  = SINE_PHASE_FRAC  * H;
+      const amp    = W * 0.23;
+
+      function sineX(y) {
+        return cx + amp * Math.sin(2 * Math.PI * (y - phase) / period);
+      }
+
+      const N  = 300;
+      const pts = [];
+      for (let i = 0; i <= N; i++) {
+        const y = (i / N) * H;
+        pts.push(`${sineX(y).toFixed(2)},${y.toFixed(2)}`);
+      }
+      const d = 'M ' + pts.join(' L ');
+      bgPath.setAttribute('d', d);
+      trailPath.setAttribute('d', d);
+
+      pathTotalLen = bgPath.getTotalLength();
+      trailPath.style.strokeDasharray  = pathTotalLen;
+      trailPath.style.strokeDashoffset = pathTotalLen;
+
+      wpLengths = ITEM_Y_FRACS.map(yf => {
+        const targetY = yf * H;
+        let lo = 0, hi = pathTotalLen;
+        for (let i = 0; i < 52; i++) {
+          const mid = (lo + hi) * 0.5;
+          bgPath.getPointAtLength(mid).y < targetY ? (lo = mid) : (hi = mid);
+        }
+        return (lo + hi) * 0.5;
+      });
+    }
+
+    // Easing: ease-in-out for smooth flight feel
+    function easeInOut(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    function tickAutoFly(timestamp) {
+      if (!autoFlyStart) autoFlyStart = timestamp;
+      const elapsed = timestamp - autoFlyStart;
+      const rawProg = Math.min(1, elapsed / AUTO_FLY_DURATION);
+      const prog = easeInOut(rawProg);
+
+      if (pathTotalLen > 0) {
+        const curLen = prog * pathTotalLen;
+        const pt = bgPath.getPointAtLength(curLen);
+
+        const dt = Math.min(pathTotalLen * 0.015, 12);
+        const pA = bgPath.getPointAtLength(Math.max(0, curLen - dt));
+        const pB = bgPath.getPointAtLength(Math.min(pathTotalLen, curLen + dt));
+        const dx = pB.x - pA.x;
+        const dy = pB.y - pA.y;
+        const angle = Math.atan2(dx, dy) * (180 / Math.PI);
+
+        trackPlane.style.left      = pt.x + 'px';
+        trackPlane.style.top       = pt.y + 'px';
+        trackPlane.style.transform = `translate(-50%, -50%) rotate(${angle.toFixed(2)}deg)`;
+
+        trailPath.style.strokeDashoffset = Math.max(0, pathTotalLen - curLen);
+
+        trackItems.forEach((item, i) => {
+          if (curLen >= wpLengths[i]) item.classList.add('active');
+        });
+      }
+
+      if (rawProg < 1) {
+        requestAnimationFrame(tickAutoFly);
+      }
+    }
+
+    // Start auto-fly when schedule section enters viewport
+    const scheduleObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !autoFlyStarted) {
+          autoFlyStarted = true;
+          autoFlyStart = 0;
+          requestAnimationFrame(tickAutoFly);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    scheduleObserver.observe(document.getElementById('schedule'));
+
+    // Hero cloud parallax (still scroll-driven)
+    function onScroll() {
+      const scrollY = window.scrollY;
+      clouds.forEach(c => {
+        c.style.transform = `translateY(${scrollY * +c.dataset.speed}px)`;
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => {
+      buildPath();
+      // If already flown, keep at end position
+      if (autoFlyStarted) {
+        const pt = bgPath.getPointAtLength(pathTotalLen);
+        trackPlane.style.left = pt.x + 'px';
+        trackPlane.style.top  = pt.y + 'px';
+        trailPath.style.strokeDashoffset = 0;
+      }
+    });
+    requestAnimationFrame(() => { buildPath(); onScroll(); });
+
+    // ── RSVP FORM ─────────────────────────────────────────
+    const SHEET_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'; // ← replace after setup
+
+    const rsvpForm        = document.getElementById('rsvpForm');
+    const rsvpSuccess     = document.getElementById('rsvpSuccess');
+    const submitBtn       = document.getElementById('submitBtn');
+    const conditionalFlds = document.getElementById('conditionalFields');
+    const adultsCardsEl   = document.getElementById('adultsCards');
+    const childrenCardsEl = document.getElementById('childrenCards');
+    const attendRadios    = document.querySelectorAll('input[name="attending"]');
+
+    // Stepper state
+    const steppers = { adults: 1, children: 0 };
+    const stepperMins = { adults: 1, children: 0 };
+    const stepperMaxs = { adults: 20, children: 10 };
+
+    function buildAdultCards() {
+      // persist existing values before rebuild
+      const savedNames = {};
+      const savedMenus = {};
+      adultsCardsEl.querySelectorAll('input[type="text"]').forEach(el => {
+        savedNames[el.name] = el.value;
+      });
+      adultsCardsEl.querySelectorAll('input[type="radio"]:checked').forEach(el => {
+        savedMenus[el.name] = el.value;
+      });
+
+      adultsCardsEl.innerHTML = '';
+      for (let i = 1; i <= steppers.adults; i++) {
+        const card = document.createElement('div');
+        card.className = 'child-card';
+        card.innerHTML = `
+          <div class="child-card-header">Invitatul ${i}</div>
+          ${i > 1 ? `<input type="text" name="adult_${i}_name" class="adult-name-input" placeholder="Nume" />` : ''}
+          <div class="child-radio-row">
+            <label>
+              <input type="radio" name="adult_${i}_menu" value="normal" />
+              <span class="dot"></span>
+              <span>Normal</span>
+            </label>
+            <label>
+              <input type="radio" name="adult_${i}_menu" value="vegetarian" />
+              <span class="dot"></span>
+              <span>Vegetarian</span>
+            </label>
+            <label>
+              <input type="radio" name="adult_${i}_menu" value="vegan" />
+              <span class="dot"></span>
+              <span>Vegan</span>
+            </label>
+            <label>
+              <input type="radio" name="adult_${i}_menu" value="fara-lactoza" />
+              <span class="dot"></span>
+              <span>Fără lactoză</span>
+            </label>
+            <label>
+              <input type="radio" name="adult_${i}_menu" value="fara-gluten" />
+              <span class="dot"></span>
+              <span>Fără gluten</span>
+            </label>
+          </div>`;
+        adultsCardsEl.appendChild(card);
+
+        // restore saved values
+        if (i > 1 && savedNames[`adult_${i}_name`]) {
+          card.querySelector(`input[name="adult_${i}_name"]`).value = savedNames[`adult_${i}_name`];
+        }
+        const savedMenu = savedMenus[`adult_${i}_menu`];
+        if (savedMenu) {
+          const radio = card.querySelector(`input[name="adult_${i}_menu"][value="${savedMenu}"]`);
+          if (radio) radio.checked = true;
+        }
+      }
+    }
+
+    function buildChildCards() {
+      childrenCardsEl.innerHTML = '';
+      for (let i = 1; i <= steppers.children; i++) {
+        const card = document.createElement('div');
+        card.className = 'child-card';
+        card.innerHTML = `
+          <div class="child-card-header">Copilul ${i}</div>
+          <div class="child-radio-row">
+            <label>
+              <input type="radio" name="child_${i}_pref" value="full_menu" />
+              <span class="dot"></span>
+              <span>Meniu complet copii</span>
+            </label>
+            <label>
+              <input type="radio" name="child_${i}_pref" value="child_seat" />
+              <span class="dot"></span>
+              <span>Doar scaun pentru copil</span>
+            </label>
+          </div>`;
+        childrenCardsEl.appendChild(card);
+      }
+    }
+
+    document.querySelectorAll('.num-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.target;
+        const dir    = parseInt(btn.dataset.dir);
+        steppers[target] = Math.max(stepperMins[target],
+                           Math.min(stepperMaxs[target], steppers[target] + dir));
+
+        document.getElementById(target + 'Display').textContent = steppers[target];
+        document.getElementById(target + 'Input').value = steppers[target];
+
+        if (target === 'adults')   buildAdultCards();
+        if (target === 'children') buildChildCards();
+      });
+    });
+
+    function checkReady() {
+      const name = rsvpForm.name.value.trim();
+      const att  = rsvpForm.attending ? rsvpForm.attending.value : '';
+      submitBtn.disabled = !(name && att);
+    }
+    rsvpForm.elements['name'].addEventListener('input', checkReady);
+
+    attendRadios.forEach(r => r.addEventListener('change', () => {
+      const yes = rsvpForm.attending.value === 'yes';
+      conditionalFlds.classList.toggle('visible', yes);
+      if (yes) buildAdultCards();
+      checkReady();
+    }));
+
+    // Form submit
+    rsvpForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      submitBtn.disabled   = true;
+      submitBtn.textContent = 'Se trimite…';
+
+      const attending = rsvpForm.attending.value;
+
+      // Collect adult menu preferences
+      const adultMenus = [];
+      if (attending === 'yes') {
+        for (let i = 1; i <= steppers.adults; i++) {
+          const sel = rsvpForm.querySelector(`input[name="adult_${i}_menu"]:checked`);
+          adultMenus.push({
+            adult: i,
+            name: i === 1 ? rsvpForm.elements['name'].value.trim()
+                          : (rsvpForm.querySelector(`input[name="adult_${i}_name"]`)?.value?.trim() || ''),
+            menu: sel ? sel.value : ''
+          });
+        }
+      }
+
+      // Collect child preferences
+      const childPrefs = [];
+      if (attending === 'yes') {
+        for (let i = 1; i <= steppers.children; i++) {
+          const sel = rsvpForm.querySelector(`input[name="child_${i}_pref"]:checked`);
+          childPrefs.push({ child: i, pref: sel ? sel.value : '' });
+        }
+      }
+
+      const payload = {
+        name:       rsvpForm.elements['name'].value.trim(),
+        attending,
+        adults:     attending === 'yes' ? steppers.adults   : '',
+        children:   attending === 'yes' ? steppers.children : '',
+        adultMenus,
+        childPrefs,
+        song:       attending === 'yes' ? (rsvpForm.song?.value?.trim() || '') : '',
+        notes:      attending === 'yes' ? (rsvpForm.notes?.value?.trim() || '') : '',
+      };
+
+      try {
+        await fetch(SHEET_URL, {
+          method:  'POST',
+          mode:    'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body:    JSON.stringify(payload),
+        });
+      } catch (_) { /* no-cors */ }
+
+      rsvpForm.style.display    = 'none';
+      rsvpSuccess.classList.add('show');
+      startCountdown();
+    });
+
+    // ── COUNTDOWN TIMER ───────────────────────────────────
+    const WEDDING_DATE = new Date('2026-10-03T14:00:00');
+
+    function startCountdown() {
+      function update() {
+        const now  = new Date();
+        const diff = WEDDING_DATE - now;
+
+        if (diff <= 0) {
+          document.getElementById('cd-days').textContent  = '0';
+          document.getElementById('cd-hours').textContent = '0';
+          document.getElementById('cd-mins').textContent  = '0';
+          document.getElementById('cd-secs').textContent  = '0';
+          return;
+        }
+
+        const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const mins  = Math.floor((diff / (1000 * 60)) % 60);
+        const secs  = Math.floor((diff / 1000) % 60);
+
+        document.getElementById('cd-days').textContent  = days;
+        document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('cd-mins').textContent  = String(mins).padStart(2, '0');
+        document.getElementById('cd-secs').textContent  = String(secs).padStart(2, '0');
+      }
+
+      update();
+      setInterval(update, 1000);
+    }
+  </script>
+
+</body>
+</html>
