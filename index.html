@@ -221,7 +221,12 @@
       color: var(--text); line-height: 1.6;
     }
     @media (max-width: 500px) {
-      .families-grid { grid-template-columns: 1fr; gap: 1px; }
+      .families-section { padding: 56px 20px 140px 20px; }
+      .families-quote { margin-bottom: 40px; }
+      .families-section .section-divider { margin-bottom: 32px; }
+      .families-grid { grid-template-columns: 1fr; gap: 18px; }
+      .family-group-label { margin-top: 14px; }
+      .family-group-label:first-child { margin-top: 0; }
     }
 
     /* ── SCHEDULE — AUTO-FLY PLANE ──────────────────────── */
@@ -1086,8 +1091,8 @@
       trailPath.setAttribute('d', d);
 
       pathTotalLen = bgPath.getTotalLength();
-      trailPath.style.strokeDasharray  = pathTotalLen;
-      trailPath.style.strokeDashoffset = pathTotalLen;
+      trailPath.setAttribute('stroke-dasharray',  pathTotalLen);
+      trailPath.setAttribute('stroke-dashoffset', pathTotalLen);
 
       wpLengths = ITEM_Y_FRACS.map(yf => {
         const targetY = yf * H;
@@ -1126,7 +1131,7 @@
         trackPlane.style.top       = pt.y + 'px';
         trackPlane.style.transform = `translate(-50%, -50%) rotate(${angle.toFixed(2)}deg)`;
 
-        trailPath.style.strokeDashoffset = Math.max(0, pathTotalLen - curLen);
+        trailPath.setAttribute('stroke-dashoffset', Math.max(0, pathTotalLen - curLen));
 
         trackItems.forEach((item, i) => {
           if (curLen >= wpLengths[i]) item.classList.add('active');
@@ -1167,7 +1172,7 @@
         const pt = bgPath.getPointAtLength(pathTotalLen);
         trackPlane.style.left = pt.x + 'px';
         trackPlane.style.top  = pt.y + 'px';
-        trailPath.style.strokeDashoffset = 0;
+        trailPath.setAttribute('stroke-dashoffset', 0);
       }
     });
     requestAnimationFrame(() => { buildPath(); onScroll(); });
