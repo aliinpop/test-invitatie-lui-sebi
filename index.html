@@ -690,6 +690,49 @@
       line-height: 1;
     }
 
+    /* ── MOBILE: MENU CARDS & CONTACT ─────────────────── */
+    @media (max-width: 600px) {
+      .adult-menu-row {
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .adult-menu-row label:first-child {
+        flex: 1 1 100%;
+      }
+      .adult-menu-row label:not(:first-child) {
+        flex: 1 1 calc(50% - 3px);
+        min-width: calc(50% - 3px);
+        font-size: 0.78rem;
+        padding: 10px;
+      }
+
+      .contact-note {
+        padding: 20px 16px;
+        line-height: 1.6;
+      }
+      .contact-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+      .contact-row > div {
+        padding: 6px 0;
+        width: 100%;
+        text-align: center;
+      }
+      .contact-row + .contact-row {
+        margin-top: 10px;
+        padding-top: 14px;
+        border-top: 1px solid var(--blush-light);
+      }
+      .contact-note a {
+        font-size: 1.25rem;
+      }
+      .contact-note p {
+        margin-bottom: 16px;
+      }
+    }
+
     /* ── FOOTER ────────────────────────────────────────── */
     footer {
       background: var(--ivory-dark);
@@ -993,7 +1036,7 @@
   </section>
 
   <footer>
-    <p>Cu dragoste &nbsp;·&nbsp; 3 Octombrie 2026 &nbsp;·&nbsp; Sebi &amp; Luisa</p>
+    <p>3 Octombrie 2026 &nbsp;·&nbsp; Sebi &amp; Luisa</p>
   </footer>
 
   <script>
@@ -1161,7 +1204,7 @@
         card.innerHTML = `
           <div class="child-card-header">Invitatul ${i}</div>
           ${i > 1 ? `<input type="text" name="adult_${i}_name" class="adult-name-input" placeholder="Nume" />` : ''}
-          <div class="child-radio-row">
+          <div class="child-radio-row adult-menu-row">
             <label>
               <input type="radio" name="adult_${i}_menu" value="normal" />
               <span class="dot"></span>
