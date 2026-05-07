@@ -132,7 +132,7 @@
     }
     .hero-date {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      font-size: clamp(1.5rem, 4.5vw, 2.4rem);
       font-style: italic; font-weight: 400;
       color: var(--text-light); margin-bottom: 8px;
       opacity: 0; animation: fadeUp 1s ease forwards 2.6s;
@@ -273,6 +273,7 @@
       position: absolute; z-index: 10;
       pointer-events: none;
       will-change: transform, left, top;
+      transition: opacity 0.8s ease;
     }
     .track-plane-glow {
       position: absolute; top: 50%; left: 50%;
@@ -778,6 +779,7 @@
       <h1 class="hero-names">Sebi <span class="amp">&</span> Luisa</h1>
       <div class="hero-divider"></div>
       <p class="hero-date">3 Octombrie 2026</p>
+      <!-- <p class="hero-location">Zalău, România</p> -->
     </div>
 
     <div class="hero-scroll">
@@ -991,18 +993,18 @@
           <p>Contact</p>
           <div class="contact-row">
             <div>
-              <a href="tel:+40700000000">Sebi: 0741 551 813</a>
+              <a href="tel:+40700000000">Sebi: +40 741 551 813</a>
             </div>
             <div>
-              <a href="tel:+40700000001">Luisa: 0743 671 385</a>
+              <a href="tel:+40700000001">Luisa: +40 743 671 385</a>
             </div>
           </div>
           <div class="contact-row">
             <div>
-              <a href="tel:+40700000002">Veronica: 0757 959 144</a>
+              <a href="tel:+40700000002">Veronica: +40 757 959 144</a>
             </div>
             <div>
-              <a href="tel:+40700000003">Mariana: 0733 942 085</a>
+              <a href="tel:+40700000003">Mariana: +40 733 942 085</a>
             </div>
           </div>
         </div>
@@ -1139,6 +1141,8 @@
 
       if (rawProg < 1) {
         requestAnimationFrame(tickAutoFly);
+      } else {
+        trackPlane.style.opacity = '0';
       }
     }
 
